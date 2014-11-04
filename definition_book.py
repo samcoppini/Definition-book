@@ -41,7 +41,7 @@ while len(novel) < words_to_write:
 				novel = novel[:random_index+1] + to_add.split() + novel[random_index+1:]
 				print str(len(novel)) + " words written"
 		except:
-			print "It toke too long to respond"
+			print "Took too long to respond"
 novel = " ".join(novel)+"."
 file = codecs.open(title.capitalize()+".txt","w",encoding='utf-8')
 file.write(novel)
