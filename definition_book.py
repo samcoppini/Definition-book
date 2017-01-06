@@ -1,6 +1,7 @@
 import codecs
-import random
 import os
+import random
+import sys
 
 from wordnik import *
 
@@ -26,7 +27,10 @@ novel = title.split()
 
 defined_words = ["you","are","unfamiliar","with","the","word","its","definition","is"]
 
-words_to_write = 500
+if len(sys.argv) > 1:
+	words_to_write = int(sys.argv[1])
+else:
+	words_to_write = 50000
 
 while len(novel) < words_to_write:
 	random_index = random.randint(0,len(novel)-1)
