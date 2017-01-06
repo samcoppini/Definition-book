@@ -25,7 +25,10 @@ word_api = WordApi.WordApi(client)
 title = make_sentence()
 novel = title.split()
 
-defined_words = ["you","are","unfamiliar","with","the","word","its","definition","is"]
+defined_words = [
+	"you", "are", "unfamiliar", "with", "the",
+	"word", "its", "definition", "is"
+]
 
 if len(sys.argv) > 1:
 	words_to_write = int(sys.argv[1])
