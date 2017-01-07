@@ -12,8 +12,7 @@ def make_sentence():
 	sentence_words = [
 		"The", get_word("adjective"), get_word("noun"),
 		get_word("verb-intransitive"), get_word("preposition"),
-		"the", get_word("adjective"), get_word("noun")
-	]
+		"the", get_word("adjective"), get_word("noun")]
 	return " ".join(sentence_words)
 
 apiUrl = 'http://api.wordnik.com/v4'
@@ -42,17 +41,14 @@ while len(novel) < words_to_write:
 		defined_words.append(random_word)
 		if random_word[-1] == ".":
 			random_word = random_word[:-1]
-		try:
-			word_definition = word_api.getDefinitions(random_word, limit=1)
-			if word_definition is not None:
-				word_definition = word_definition[0].text
-				to_add = "(If you are unfamiliar with the word '" + random_word + "', its definition is \"" + word_definition +"\")"
-				novel = novel[:random_index+1] + to_add.split() + novel[random_index+1:]
-				print(str(len(novel)) + " words written")
-		except:
-			print("Took too long to respond")
-novel = " ".join(novel)+"."
-file = codecs.open(title.capitalize()+".txt","w",encoding='utf-8')
+		word_definition = word_api.getDefinitions(random_word, limit=1)
+		if word_definition is not None:
+			word_definition = word_definition[0].text
+			to_add = "(If you are unfamiliar with the word '" + random_word + "', its definition is \"" + word_definition +"\")"
+			novel = novel[:random_index+1] + to_add.split() + novel[random_index+1:]
+			print(str(len(novel)) + " words written")
+novel = " ".join(novel) + "."
+file = codecs.open(title.capitalize() + ".txt", "w", encoding='utf-8')
 file.write(novel)
 file.close()
 
